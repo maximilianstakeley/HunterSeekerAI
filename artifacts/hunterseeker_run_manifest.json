@@ -1,0 +1,18 @@
+{
+  "app": "HUNTERSEEKERAI",
+  "pipeline_version": "local-upload-v1",
+  "chunk_size": 50000,
+  "max_rows_per_input": null,
+  "training_enabled": false,
+  "inputs": [],
+  "datasets": [
+    "unsw",
+    "cic2017",
+    "cic2018",
+    "toniot",
+    "botiot"
+  ],
+  "stats": [],
+  "trainer": null,
+  "model_path": null
+}

@@ -1,0 +1,574 @@
+{
+  "pipeline_version": "five-dataset-orchestrator-v1",
+  "created_at_utc": "2026-10-07T18:51:39.205940+00:00",
+  "requested_datasets": [
+    "unsw",
+    "cic2017",
+    "cic2018",
+    "toniot",
+    "botiot"
+  ],
+  "dataset_display_names": {
+    "unsw": "UNSW-NB15",
+    "cic2017": "CIC-IDS2017",
+    "cic2018": "CSE-CIC-IDS2018",
+    "toniot": "TON-IoT",
+    "botiot": "BoT-IoT"
+  },
+  "source_mode": "auto",
+  "botiot_full": false,
+  "balancing": {
+    "reservoir_capacity_per_dataset_class": 2000,
+    "dataset_balancing": "equal usable rows per dataset",
+    "class_balancing": "equal benign and attack rows per dataset",
+    "validation_fraction": 0.2,
+    "random_state": 42
+  },
+  "features": {
+    "count": 19,
+    "names": [
+      "duration",
+      "source_port",
+      "destination_port",
+      "bytes_in",
+      "bytes_out",
+      "packets_in",
+      "packets_out",
+      "missed_bytes",
+      "source_ip_bytes",
+      "destination_ip_bytes",
+      "protocol_code",
+      "service_code",
+      "cpu_usage",
+      "memory_usage",
+      "disk_usage",
+      "network_usage",
+      "process_count",
+      "temperature",
+      "power"
+    ]
+  },
+  "sources": {
+    "unsw": {
+      "dataset": "unsw",
+      "mode": "public",
+      "provider": "Kaggle",
+      "reference": "dhoogla/unswnb15",
+      "scope": "public Kaggle mirror",
+      "files": [
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/unswnb15/versions/5/UNSW_NB15_testing-set.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/unswnb15/versions/5/UNSW_NB15_training-set.parquet"
+      ],
+      "notes": [
+        "Public mirror; not represented as an official provider endpoint."
+      ]
+    },
+    "cic2017": {
+      "dataset": "cic2017",
+      "mode": "public",
+      "provider": "Kaggle",
+      "reference": "dhoogla/cicids2017",
+      "scope": "public Kaggle mirror",
+      "files": [
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/cicids2017/versions/3/Benign-Monday-no-metadata.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/cicids2017/versions/3/Botnet-Friday-no-metadata.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/cicids2017/versions/3/Bruteforce-Tuesday-no-metadata.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/cicids2017/versions/3/DDoS-Friday-no-metadata.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/cicids2017/versions/3/DoS-Wednesday-no-metadata.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/cicids2017/versions/3/Infiltration-Thursday-no-metadata.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/cicids2017/versions/3/Portscan-Friday-no-metadata.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/cicids2017/versions/3/WebAttacks-Thursday-no-metadata.parquet"
+      ],
+      "notes": [
+        "Public mirror; not represented as an official provider endpoint."
+      ]
+    },
+    "cic2018": {
+      "dataset": "cic2018",
+      "mode": "public",
+      "provider": "Kaggle",
+      "reference": "dhoogla/csecicids2018",
+      "scope": "public Kaggle mirror",
+      "files": [
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/Botnet-Friday-02-03-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/Bruteforce-Wednesday-14-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/DDoS1-Tuesday-20-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/DDoS2-Wednesday-21-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/DoS2-Friday-16-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/Infil2-Thursday-01-03-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/Web1-Thursday-22-02-2018_TrafficForML_CICFlowMeter.parquet",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/dhoogla/csecicids2018/versions/3/Web2-Friday-23-02-2018_TrafficForML_CICFlowMeter.parquet"
+      ],
+      "notes": [
+        "Public mirror; not represented as an official provider endpoint."
+      ]
+    },
+    "toniot": {
+      "dataset": "toniot",
+      "mode": "public",
+      "provider": "Hugging Face",
+      "reference": "codymlewis/TON_IoT_network",
+      "scope": "public TON-IoT network-flow subset/mirror",
+      "files": [
+        "/var/folders/n8/s8n1rr097vd34fnzl4wbj2_40000gn/T/hunterseeker_toniot_2q_zspse/train_test_network.csv"
+      ],
+      "notes": [
+        "Public TON-IoT network-flow subset/mirror. It is not the complete heterogeneous TON-IoT collection."
+      ]
+    },
+    "botiot": {
+      "dataset": "botiot",
+      "mode": "public",
+      "provider": "Kaggle",
+      "reference": "vigneshvenkateswaran/bot-iot-5-data",
+      "scope": "public 5% BoT-IoT distribution",
+      "files": [
+        "/Users/maxstakeley/.cache/kagglehub/datasets/vigneshvenkateswaran/bot-iot-5-data/versions/1/reduced_data_1.csv",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/vigneshvenkateswaran/bot-iot-5-data/versions/1/reduced_data_2.csv",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/vigneshvenkateswaran/bot-iot-5-data/versions/1/reduced_data_3.csv",
+        "/Users/maxstakeley/.cache/kagglehub/datasets/vigneshvenkateswaran/bot-iot-5-data/versions/1/reduced_data_4.csv"
+      ],
+      "notes": [
+        "Public mirror; not represented as an official provider endpoint."
+      ]
+    }
+  },
+  "datasets": {
+    "unsw": {
+      "dataset": "unsw",
+      "source_provider": "Kaggle",
+      "source_reference": "dhoogla/unswnb15",
+      "source_scope": "public Kaggle mirror",
+      "rows_seen": 257673,
+      "rows_labeled": 257673,
+      "benign_seen": 93000,
+      "attack_seen": 164673,
+      "unknown_seen": 0,
+      "batches": 14,
+      "reservoir_benign": 2000,
+      "reservoir_attack": 2000,
+      "train_benign": 1600,
+      "train_attack": 1600,
+      "validation_benign": 400,
+      "validation_attack": 400,
+      "errors": [],
+      "reservoir": {
+        "benign": 2000,
+        "attack": 2000
+      }
+    },
+    "cic2017": {
+      "dataset": "cic2017",
+      "source_provider": "Kaggle",
+      "source_reference": "dhoogla/cicids2017",
+      "source_scope": "public Kaggle mirror",
+      "rows_seen": 2313810,
+      "rows_labeled": 2313810,
+      "benign_seen": 1977318,
+      "attack_seen": 336492,
+      "unknown_seen": 0,
+      "batches": 119,
+      "reservoir_benign": 2000,
+      "reservoir_attack": 2000,
+      "train_benign": 1600,
+      "train_attack": 1600,
+      "validation_benign": 400,
+      "validation_attack": 400,
+      "errors": [],
+      "reservoir": {
+        "benign": 2000,
+        "attack": 2000
+      }
+    },
+    "cic2018": {
+      "dataset": "cic2018",
+      "source_provider": "Kaggle",
+      "source_reference": "dhoogla/csecicids2018",
+      "source_scope": "public Kaggle mirror",
+      "rows_seen": 6659532,
+      "rows_labeled": 6659532,
+      "benign_seen": 5329008,
+      "attack_seen": 1330524,
+      "unknown_seen": 0,
+      "batches": 337,
+      "reservoir_benign": 2000,
+      "reservoir_attack": 2000,
+      "train_benign": 1600,
+      "train_attack": 1600,
+      "validation_benign": 400,
+      "validation_attack": 400,
+      "errors": [],
+      "reservoir": {
+        "benign": 2000,
+        "attack": 2000
+      }
+    },
+    "toniot": {
+      "dataset": "toniot",
+      "source_provider": "Hugging Face",
+      "source_reference": "codymlewis/TON_IoT_network",
+      "source_scope": "public TON-IoT network-flow subset/mirror",
+      "rows_seen": 211043,
+      "rows_labeled": 211043,
+      "benign_seen": 50000,
+      "attack_seen": 161043,
+      "unknown_seen": 0,
+      "batches": 11,
+      "reservoir_benign": 2000,
+      "reservoir_attack": 2000,
+      "train_benign": 1600,
+      "train_attack": 1600,
+      "validation_benign": 400,
+      "validation_attack": 400,
+      "errors": [],
+      "reservoir": {
+        "benign": 2000,
+        "attack": 2000
+      }
+    },
+    "botiot": {
+      "dataset": "botiot",
+      "source_provider": "Kaggle",
+      "source_reference": "vigneshvenkateswaran/bot-iot-5-data",
+      "source_scope": "public 5% BoT-IoT distribution",
+      "rows_seen": 3668522,
+      "rows_labeled": 3668522,
+      "benign_seen": 477,
+      "attack_seen": 3668045,
+      "unknown_seen": 0,
+      "batches": 184,
+      "reservoir_benign": 477,
+      "reservoir_attack": 2000,
+      "train_benign": 382,
+      "train_attack": 382,
+      "validation_benign": 95,
+      "validation_attack": 95,
+      "errors": [],
+      "reservoir": {
+        "benign": 477,
+        "attack": 2000
+      }
+    }
+  },
+  "training": {
+    "requested": true,
+    "performed": true,
+    "train_rows": 13564,
+    "validation_rows": 3390,
+    "train_dataset_counts": {
+      "0": {
+        "botiot": 382,
+        "cic2017": 1600,
+        "cic2018": 1600,
+        "toniot": 1600,
+        "unsw": 1600
+      },
+      "1": {
+        "botiot": 382,
+        "cic2017": 1600,
+        "cic2018": 1600,
+        "toniot": 1600,
+        "unsw": 1600
+      }
+    },
+    "validation_dataset_counts": {
+      "0": {
+        "botiot": 95,
+        "cic2017": 400,
+        "cic2018": 400,
+        "toniot": 400,
+        "unsw": 400
+      },
+      "1": {
+        "botiot": 95,
+        "cic2017": 400,
+        "cic2018": 400,
+        "toniot": 400,
+        "unsw": 400
+      }
+    }
+  },
+  "metrics": {
+    "global": {
+      "rows": 3390,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "precision": 0.5,
+      "recall": 0.6230088495575221,
+      "f1": 0.5547675334909378,
+      "confusion_matrix": [
+        [
+          639,
+          1056
+        ],
+        [
+          639,
+          1056
+        ]
+      ],
+      "classification_report": {
+        "benign": {
+          "precision": 0.5,
+          "recall": 0.3769911504424779,
+          "f1-score": 0.4298688193743693,
+          "support": 1695.0
+        },
+        "attack": {
+          "precision": 0.5,
+          "recall": 0.6230088495575221,
+          "f1-score": 0.5547675334909378,
+          "support": 1695.0
+        },
+        "accuracy": 0.5,
+        "macro avg": {
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1-score": 0.4923181764326535,
+          "support": 3390.0
+        },
+        "weighted avg": {
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1-score": 0.4923181764326536,
+          "support": 3390.0
+        }
+      },
+      "roc_auc": 0.5962636941899216
+    },
+    "per_dataset": {
+      "botiot": {
+        "rows": 190,
+        "accuracy": 0.5421052631578948,
+        "balanced_accuracy": 0.5421052631578948,
+        "precision": 0.5222222222222223,
+        "recall": 0.9894736842105263,
+        "f1": 0.6836363636363636,
+        "confusion_matrix": [
+          [
+            9,
+            86
+          ],
+          [
+            1,
+            94
+          ]
+        ],
+        "classification_report": {
+          "benign": {
+            "precision": 0.9,
+            "recall": 0.09473684210526316,
+            "f1-score": 0.17142857142857143,
+            "support": 95.0
+          },
+          "attack": {
+            "precision": 0.5222222222222223,
+            "recall": 0.9894736842105263,
+            "f1-score": 0.6836363636363636,
+            "support": 95.0
+          },
+          "accuracy": 0.5421052631578948,
+          "macro avg": {
+            "precision": 0.7111111111111111,
+            "recall": 0.5421052631578948,
+            "f1-score": 0.42753246753246754,
+            "support": 190.0
+          },
+          "weighted avg": {
+            "precision": 0.7111111111111111,
+            "recall": 0.5421052631578948,
+            "f1-score": 0.42753246753246743,
+            "support": 190.0
+          }
+        },
+        "roc_auc": 0.5922437673130193
+      },
+      "cic2017": {
+        "rows": 800,
+        "accuracy": 0.44875,
+        "balanced_accuracy": 0.44875,
+        "precision": 0.46889226100151743,
+        "recall": 0.7725,
+        "f1": 0.5835694050991501,
+        "confusion_matrix": [
+          [
+            50,
+            350
+          ],
+          [
+            91,
+            309
+          ]
+        ],
+        "classification_report": {
+          "benign": {
+            "precision": 0.3546099290780142,
+            "recall": 0.125,
+            "f1-score": 0.18484288354898337,
+            "support": 400.0
+          },
+          "attack": {
+            "precision": 0.46889226100151743,
+            "recall": 0.7725,
+            "f1-score": 0.5835694050991501,
+            "support": 400.0
+          },
+          "accuracy": 0.44875,
+          "macro avg": {
+            "precision": 0.4117510950397658,
+            "recall": 0.44875,
+            "f1-score": 0.38420614432406675,
+            "support": 800.0
+          },
+          "weighted avg": {
+            "precision": 0.41175109503976587,
+            "recall": 0.44875,
+            "f1-score": 0.38420614432406675,
+            "support": 800.0
+          }
+        },
+        "roc_auc": 0.7108125000000001
+      },
+      "cic2018": {
+        "rows": 800,
+        "accuracy": 0.38625,
+        "balanced_accuracy": 0.38625,
+        "precision": 0.4069529652351738,
+        "recall": 0.4975,
+        "f1": 0.44769403824521936,
+        "confusion_matrix": [
+          [
+            110,
+            290
+          ],
+          [
+            201,
+            199
+          ]
+        ],
+        "classification_report": {
+          "benign": {
+            "precision": 0.3536977491961415,
+            "recall": 0.275,
+            "f1-score": 0.30942334739803096,
+            "support": 400.0
+          },
+          "attack": {
+            "precision": 0.4069529652351738,
+            "recall": 0.4975,
+            "f1-score": 0.44769403824521936,
+            "support": 400.0
+          },
+          "accuracy": 0.38625,
+          "macro avg": {
+            "precision": 0.38032535721565763,
+            "recall": 0.38625,
+            "f1-score": 0.37855869282162513,
+            "support": 800.0
+          },
+          "weighted avg": {
+            "precision": 0.38032535721565763,
+            "recall": 0.38625,
+            "f1-score": 0.37855869282162513,
+            "support": 800.0
+          }
+        },
+        "roc_auc": 0.511640625
+      },
+      "toniot": {
+        "rows": 800,
+        "accuracy": 0.48875,
+        "balanced_accuracy": 0.48875,
+        "precision": 0.48866498740554154,
+        "recall": 0.485,
+        "f1": 0.4868255959849435,
+        "confusion_matrix": [
+          [
+            197,
+            203
+          ],
+          [
+            206,
+            194
+          ]
+        ],
+        "classification_report": {
+          "benign": {
+            "precision": 0.48883374689826303,
+            "recall": 0.4925,
+            "f1-score": 0.49066002490660027,
+            "support": 400.0
+          },
+          "attack": {
+            "precision": 0.48866498740554154,
+            "recall": 0.485,
+            "f1-score": 0.4868255959849435,
+            "support": 400.0
+          },
+          "accuracy": 0.48875,
+          "macro avg": {
+            "precision": 0.4887493671519023,
+            "recall": 0.48875,
+            "f1-score": 0.4887428104457719,
+            "support": 800.0
+          },
+          "weighted avg": {
+            "precision": 0.4887493671519023,
+            "recall": 0.48875,
+            "f1-score": 0.4887428104457719,
+            "support": 800.0
+          }
+        },
+        "roc_auc": 0.5729625
+      },
+      "unsw": {
+        "rows": 800,
+        "accuracy": 0.66625,
+        "balanced_accuracy": 0.66625,
+        "precision": 0.6718346253229974,
+        "recall": 0.65,
+        "f1": 0.6607369758576874,
+        "confusion_matrix": [
+          [
+            273,
+            127
+          ],
+          [
+            140,
+            260
+          ]
+        ],
+        "classification_report": {
+          "benign": {
+            "precision": 0.6610169491525424,
+            "recall": 0.6825,
+            "f1-score": 0.6715867158671587,
+            "support": 400.0
+          },
+          "attack": {
+            "precision": 0.6718346253229974,
+            "recall": 0.65,
+            "f1-score": 0.6607369758576874,
+            "support": 400.0
+          },
+          "accuracy": 0.66625,
+          "macro avg": {
+            "precision": 0.6664257872377699,
+            "recall": 0.66625,
+            "f1-score": 0.666161845862423,
+            "support": 800.0
+          },
+          "weighted avg": {
+            "precision": 0.6664257872377699,
+            "recall": 0.66625,
+            "f1-score": 0.666161845862423,
+            "support": 800.0
+          }
+        },
+        "roc_auc": 0.7774375
+      }
+    }
+  },
+  "model_path": "artifacts/hunterseeker_five_dataset_model.joblib"
+}
